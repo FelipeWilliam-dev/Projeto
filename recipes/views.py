@@ -7,8 +7,8 @@ def home(request):
         'name':'Felipe William'
     })
 
-def contato(request): 
-    return HttpResponse("Nicolas Passivo")
+def recipe(request, id): 
+    return render(request, 'recipes/pages/recipe-view.html')
 
 
 # Create your views here.
