@@ -1,14 +1,18 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from utils.recipes.factory import make_recipe
+
  
 def home(request):
     #return HttpResponse("Hello")
     return render(request, 'recipes/pages/home.html', context={
-        'name':'Felipe William'
+        'recipes':[make_recipe() for _ in range(10)],
     })
 
 def recipe(request, id): 
-    return render(request, 'recipes/pages/recipe-view.html')
+    return render(request, 'recipes/pages/recipe-view.html', context={
+        'recipe': make_recipe(),
+        'is_datail_page': True,
+    })
 
 
 # Create your views here.
